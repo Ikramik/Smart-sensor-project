@@ -1,27 +1,32 @@
-# Smart Sensor Project
+# Smart Home Environment & Safety Monitor
 
-## Description
-This project consists of a smart sensor system with a smoke/gas detector and a DHT11 temperature and humidity sensor. The system displays data on an LCD screen and sounds a buzzer when smoke or gas is detected.
+An embedded systems prototype designed for real-time environmental tracking and hazard detection. Built entirely in C++ using the Arduino microcontroller platform, this system acts as a localized smart-home hub, providing immediate visual feedback and audible alerts for fire or gas leaks.
 
-## Hardware Required
-- Arduino Uno
-- DHT11 Sensor
-- MQ2 Gas Sensor
-- 16x2 LCD (I2C)
-- Buzzer
-- Jumper wires
+## Key Features
+* **Real-Time Hazard Detection:** Utilizes an MQ2 sensor to continuously monitor for dangerous levels of combustible gases and smoke.
+* **Automated Alarm System:** Triggers a high-decibel piezo buzzer immediately upon crossing hazard thresholds.
+* **Environmental Tracking:** Logs and displays ambient room temperature and relative humidity via a DHT11 sensor.
+* **I2C LCD Interface:** Provides a clean, real-time visual readout of all sensor states using I2C communication to minimize wiring overhead.
 
-## Installation
-1. Download the code from GitHub.
-2. Open the Arduino IDE and load the code onto your Arduino board.
-3. Connect the components according to the schematic provided.
+## Hardware Architecture
 
-## How to Use
-- The system will continuously monitor the smoke/gas sensor and display temperature and humidity on the LCD.
-- The buzzer will sound if smoke or gas is detected.
+![Project Schematic](Project%20Diagram.png)
 
-## Technologies Used
-- Arduino IDE
-- DHT11 Library
-- LiquidCrystal_I2C Library
-- MQ2 Gas Sensor
+* **Microcontroller:** Arduino Uno (ATmega328P)
+* **Gas/Smoke Sensor:** MQ-2 Combustible Gas Sensor
+* **Environment Sensor:** DHT11 Temperature & Humidity Sensor
+* **Display:** 16x2 LCD Display with I2C Backpack
+* **Actuator:** Active Piezo Buzzer
+
+## Software & Libraries Used
+The firmware is written in strict **C++** and leverages the following core libraries for hardware communication:
+* `Wire.h` (For I2C communication)
+* `LiquidCrystal_I2C.h` (For display rendering)
+* `DHT.h` (For digital sensor parsing)
+
+## Installation & Flashing
+1. Clone this repository to your local machine.
+2. Open `Sweet Home.ino` in the Arduino IDE.
+3. Ensure the required libraries (`DHT sensor library` and `LiquidCrystal I2C`) are installed via the Library Manager.
+4. Wire the components according to the diagram above.
+5. Select your Arduino board and COM port, then click **Upload**.
